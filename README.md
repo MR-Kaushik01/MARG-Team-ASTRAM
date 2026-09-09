@@ -1,41 +1,80 @@
-# MARG — SIH 2026 Prototype v5
+# MARG — SIH 2026 Prototype
 
-## Hackathon demo flow
+## 🌍 Smart Travel. Safer Journeys. Meaningful Connections.
 
-1. Open `index.html`.
-2. The website starts at a **Sign in** screen.
-3. Enter **any valid email** and **any password with 4+ characters**.
-4. Click **Enter MARG**.
-5. The prototype opens and the session is remembered in the browser.
-6. Use **Sign out** to return to the login screen.
+MARG is a smart travel platform designed to make travel more intelligent, affordable, safe, inclusive and community-focused.
 
-### Example demo credentials
-- Email: `judge@marg-demo.com`
-- Password: `MARG2026`
+## 🚀 Live Prototype
 
-These are not real credentials. This is a frontend authentication simulation for the hackathon demo. No real account, password database, payment, or emergency dispatch is created.
+**[Open MARG Prototype](YOUR-GITHUB-PAGES-LINK-HERE)**
 
-## Included product flows
-- AI-based trip planning
-- Budget intelligence
-- Crowd-aware route suggestions
-- Smart hotel and transport booking
-- Emergency SOS simulation
-- Companion traveller details
-- Multilingual selector
-- Local community experiences
-- Sustainable / low-crowd travel positioning
-- Verified information indicators
+> Replace the link above with your GitHub Pages URL after deployment.
 
-## GitHub Pages
-Upload `index.html`, `styles.css`, `app.js`, `app.ts`, and `README.md` to the root of a public GitHub repository. Enable GitHub Pages from `Settings -> Pages -> Deploy from a branch -> main -> / (root)`.
+## ✨ Key Features
 
-The browser executes `app.js`. `app.ts` is the typed source/model reference for a future TypeScript build.
+- 🤖 AI-Based Trip Planning
+- 💰 AI with Budget Intelligence
+- 🏨 Smart Hotel & Transport Booking
+- 🧭 Smart Route & Destination Suggestions
+- 👥 Companion Traveller Management
+- 🆘 Emergency SOS Support
+- 🌐 Multilingual Support
+- 👥 Crowd-Aware Tourism
+- 🏘️ Local Community Focus
+- 🌱 Sustainable & Responsible Tourism
+- 📍 Lesser-known destination discovery
+- 🔐 Frontend authentication prototype
 
+## 🎯 What Makes MARG Different?
 
-## v5 UI
-The post-login dashboard is organized as a polished travel-product interface with Home, AI Planner, Smart Booking, Destinations, Local Experiences, Safety & SOS, Companions, Trips, Community and Sustainable Travel views.
+### Budget Intelligence
+Creates practical travel plans based on the traveller's available budget instead of suggesting one-size-fits-all trips.
 
+### Crowd-Aware Tourism
+Helps travellers avoid overcrowded locations by suggesting alternative routes, timings and destinations.
 
-## Authentication
-The prototype opens on the MARG authentication screen. Users can either sign in with any valid demo email/password (4+ characters) or use the Create Account tab to create a demo traveller profile. The entered email is reflected in the dashboard profile.
+### Local Community Focus
+Promotes local businesses, artisans, food experiences and community-led tourism.
+
+### Multilingual Support
+Designed to make travel information more accessible to travellers from different language backgrounds.
+
+### Safety First
+Provides quick access to emergency SOS support and organized companion/travel information.
+
+### Sustainable Tourism
+Encourages responsible travel, lower-impact options and lesser-known destinations.
+
+## 🧑‍💻 Hackathon Demo
+
+This repository contains a **frontend prototype created for SIH 2026 demonstration purposes**.
+
+The authentication system is a prototype simulation:
+
+- Users can sign in using a demo email and password.
+- New users can use the **Create Account** flow.
+- No real user account or payment is created.
+- No real emergency dispatch is performed.
+
+## 🗺️ Prototype Flow
+
+```text
+MARG Login
+     ↓
+Sign In / Create Account
+     ↓
+MARG Dashboard
+     ↓
+AI Trip Planner
+     ↓
+Smart Booking
+     ↓
+Destination Discovery
+     ↓
+Local Experiences
+     ↓
+Safety & SOS
+     ↓
+Companion Management
+     ↓
+My Trips & Travel Impact
