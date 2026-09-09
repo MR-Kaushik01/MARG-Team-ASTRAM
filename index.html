@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MARG — Smart Travel Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Authentication gate: prototype-only frontend demo -->
+  <section id="authScreen" class="auth-screen">
+    <div class="auth-glow glow-one"></div><div class="auth-glow glow-two"></div>
+    <div class="auth-shell">
+      <div class="auth-brand">
+        <div class="logo-mark">M</div>
+        <div><b>MARG</b><span>Your Journey, Our Connection</span></div>
+      </div>
+      <div class="auth-card">
+        <div class="auth-copy">
+          <span class="eyebrow">WELCOME BACK</span>
+          <h1>Travel smarter.<br><em>Start with MARG.</em></h1>
+          <p>Sign in to your smart travel companion and unlock AI planning, budget intelligence, crowd-aware routes and safety support.</p>
+          <div class="auth-points">
+            <span>✦ AI trip planning</span><span>₹ Budget intelligence</span><span>🆘 Safety support</span><span>🌿 Local experiences</span>
+          </div>
+        </div>
+        <div class="login-form">
+          <div class="auth-tabs"><button type="button" class="auth-tab active" data-auth-tab="signin">Sign In</button><button type="button" class="auth-tab" data-auth-tab="create">Create Account</button></div>
+
+          <form id="loginForm" class="auth-form active">
+            <h2>Welcome back</h2>
+            <p class="muted">Sign in to continue your smarter, safer journey.</p>
+            <label>Email address<input id="email" type="email" placeholder="traveller@example.com" autocomplete="off" required></label>
+            <label>Password<div class="password-wrap"><input id="password" type="password" placeholder="Enter your password" autocomplete="new-password" required><button type="button" id="togglePassword">Show</button></div></label>
+            <div class="auth-options"><label class="check"><input type="checkbox"> Remember me</label><button type="button" class="text-btn" id="forgotBtn">Forgot password?</button></div>
+            <button class="primary wide" type="submit">Enter MARG <span>→</span></button>
+            <div id="loginError" class="login-error"></div>
+          </form>
+
+          <form id="createForm" class="auth-form">
+            <h2>Create your MARG account</h2>
+            <p class="muted">Set up your traveller profile and start planning meaningful journeys.</p>
+            <label>Full name<input id="createName" type="text" placeholder="Your name" autocomplete="off" required></label>
+            <label>Email address<input id="createEmail" type="email" placeholder="you@example.com" autocomplete="off" required></label>
+            <label>Create password<div class="password-wrap"><input id="createPassword" type="password" placeholder="At least 4 characters" required><button type="button" id="toggleCreatePassword">Show</button></div></label>
+            <button class="primary wide" type="submit">Create Account <span>→</span></button>
+            <p class="account-note">Prototype account · No payment or real booking is created.</p>
+            <div id="createError" class="login-error"></div>
+          </form>
+        </div>
+      </div>
+      <div class="auth-foot">SIH 2026 Prototype · Team ASTRAM · Frontend demonstration</div>
+    </div>
+  </section>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-mark">M</div>
+        <div><b>MARG</b><span>Your Journey, Our Connection</span></div>
+      </div>
+
+      <div class="nav-label">MAIN MENU</div>
+      <nav>
+        <button class="nav active" data-view="explore"><span class="nav-icon">⌂</span><span>Home</span></button>
+        <button class="nav" data-view="planner"><span class="nav-icon">✦</span><span>AI Trip Planner</span></button>
+        <button class="nav" data-view="bookings"><span class="nav-icon">▣</span><span>Smart Booking</span></button>
+        <button class="nav" data-view="destinations"><span class="nav-icon">⌖</span><span>Explore Destinations</span></button>
+        <button class="nav" data-view="local"><span class="nav-icon">♧</span><span>Local Experiences</span></button>
+        <button class="nav" data-view="safety"><span class="nav-icon">♡</span><span>Safety & SOS</span></button>
+        <button class="nav" data-view="companions"><span class="nav-icon">♧</span><span>My Companions</span></button>
+        <button class="nav" data-view="trips"><span class="nav-icon">▣</span><span>My Trips</span></button>
+      </nav>
+
+      <div class="nav-label second">IMPACT</div>
+      <nav>
+        <button class="nav" data-view="community"><span class="nav-icon">♡</span><span>Community</span></button>
+        <button class="nav" data-view="sustainable"><span class="nav-icon">◒</span><span>Sustainable Travel</span></button>
+      </nav>
+
+      <div class="local-impact">
+        <div class="impact-art"><span>⌁</span><span>♧</span><span>△</span></div>
+        <b>Travel Local<br>Impact Global</b>
+        <small>Support local communities for a better tomorrow.</small>
+      </div>
+
+      <button id="logoutBtn" class="logout">↪ Sign out</button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-brand"><div class="logo-mark">M</div><b>MARG</b></div>
+        <div class="search"><span>⌕</span><input id="search" placeholder="Search destinations, hotels, experiences..."></div>
+        <div class="top-actions">
+          <button id="languageBtn" class="top-pill">◎ English⌄</button>
+          <button id="notifBtn" class="icon-btn">♧<i></i></button>
+          <button class="profile" id="profileBtn"><div class="avatar" id="profileAvatar">J</div><div><b id="profileName">Judge</b><small>Traveller</small></div><span>⌄</span></button>
+        </div>
+      </header>
+
+      <div id="languageMenu" class="language-menu hidden"><b>Choose language</b><button data-lang="EN">English</button><button data-lang="HI">हिन्दी</button><button data-lang="TA">தமிழ்</button><button data-lang="BN">বাংলা</button></div>
+
+      <!-- HOME -->
+      <section id="view-explore" class="view active">
+        <div class="dashboard-hero">
+          <div class="hero-overlay">
+            <span class="eyebrow white">SMART TRAVEL · HUMAN CONNECTION</span>
+            <h1>Welcome to MARG, <span id="welcomeName">Traveller</span>.<br><em>Travel smarter. Safer. Together.</em></h1>
+            <p>AI-powered journeys | Real experiences | Stronger local communities</p>
+            <div class="quote-chip">“Not just a trip, a positive impact.”</div>
+          </div>
+          <button class="inspiration" data-view="destinations"><span>⌖ Today's Inspiration</span><b>Udaipur, Rajasthan</b><small>Lakes, culture and timeless beauty</small><strong>→</strong></button>
+        </div>
+
+        <div class="section-head compact">
+          <div><span class="section-icon">✦</span><div><h2>Plan Your Journey</h2><p>Everything you need for a smooth and meaningful travel experience.</p></div></div>
+          <button class="view-all" data-view="planner">View All →</button>
+        </div>
+
+        <div class="service-grid">
+          <button class="service-card blue" data-view="planner"><span class="service-icon">✦</span><b>AI Trip Planner</b><small>Get personalized itineraries</small><i>→</i></button>
+          <button class="service-card green" data-view="bookings"><span class="service-icon">▣</span><b>Hotel Booking</b><small>Find best stays at best prices</small><i>→</i></button>
+          <button class="service-card orange" data-view="bookings"><span class="service-icon">▤</span><b>Transport Booking</b><small>Buses, Trains, Flights and more</small><i>→</i></button>
+          <button class="service-card violet" data-view="planner"><span class="service-icon">⌖</span><b>Smart Routes</b><small>Discover efficient & crowd-aware routes</small><i>→</i></button>
+          <button class="service-card pink" data-view="safety"><span class="service-icon">SOS</span><b>Emergency SOS</b><small>Quick help, anytime</small><i>→</i></button>
+          <button class="service-card mint" data-view="companions"><span class="service-icon">♧</span><b>My Companions</b><small>Manage your travel group</small><i>→</i></button>
+        </div>
+
+        <div class="two-col-row">
+          <div class="panel destinations-panel">
+            <div class="section-head">
+              <div><span class="section-icon pin">⌖</span><div><h2>Popular Destinations</h2><p>Chosen by travellers like you</p></div></div>
+              <button class="view-all" data-view="destinations">View All →</button>
+            </div>
+            <div class="mini-destinations">
+              <button class="mini-destination jaipur" data-destination="Jaipur"><div><b>Jaipur</b><small>Royal heritage & vibrant culture</small><span>★ 4.6</span></div></button>
+              <button class="mini-destination manali" data-destination="Manali"><div><b>Manali</b><small>Mountains, adventure & peace</small><span>★ 4.7</span></div></button>
+              <button class="mini-destination goa" data-destination="Goa"><div><b>Goa</b><small>Beaches, nightlife & charm</small><span>★ 4.5</span></div></button>
+              <button class="mini-destination varanasi" data-destination="Varanasi"><div><b>Varanasi</b><small>Spirituality & timeless traditions</small><span>★ 4.8</span></div></button>
+            </div>
+          </div>
+
+          <div class="panel map-panel">
+            <div class="section-head">
+              <div><span class="section-icon map-icon">⌖</span><div><h2>Your Travel Map</h2><p>Explore destinations, routes and insights</p></div></div>
+            </div>
+            <div class="fake-map">
+              <span class="map-dot m1">Jaipur</span><span class="map-dot m2">Manali</span><span class="map-dot m3">Varanasi</span><span class="map-dot m4">Goa</span>
+              <div class="map-legend"><span>♟ Live crowd status</span><span>⌁ Best travel routes</span><span>▣ Estimated budget</span><span>◒ Sustainable options</span></div>
+              <button class="map-btn" data-view="planner">Explore on Map →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col-row bottom">
+          <div class="panel impact-panel">
+            <div class="section-head"><div><span class="section-icon leaf">◒</span><div><h2>Your Impact</h2><p>Travel with purpose</p></div></div></div>
+            <div class="metrics">
+              <div><b>12 kg</b><small>CO₂ saved</small><em>Through eco travel options</em></div>
+              <div><b>8</b><small>Local businesses</small><em>supported</em></div>
+              <div><b>3</b><small>Lesser-known</small><em>destinations explored</em></div>
+              <div><b>5</b><small>Communities</small><em>benefited</em></div>
+            </div>
+          </div>
+          <div class="panel tips-panel">
+            <div class="section-head"><div><span class="section-icon bulb">✦</span><div><h2>Quick Tips</h2><p>Make your journey smoother</p></div></div><div class="tip-arrows">← →</div></div>
+            <div class="tips">
+              <div><span>◷</span><b>Travel off-peak</b><small>for lower prices and fewer crowds.</small></div>
+              <div><span>🍴</span><b>Try local food</b><small>to support small businesses.</small></div>
+              <div><span>♥</span><b>Keep emergency</b><small>contacts handy.</small></div>
+              <div><span>◒</span><b>Choose eco-friendly</b><small>stay options.</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="responsible-banner"><div><b>Explore Responsibly.<br>Support Local. Keep Travelling.</b></div><em>A better tomorrow<br>with every journey</em><button data-view="sustainable">Learn More →</button></div>
+      </section>
+
+      <!-- PLANNER -->
+      <section id="view-planner" class="view">
+        <div class="page-head"><span class="eyebrow dark">MARG AI</span><h2>Build a trip that fits <em>you.</em></h2><p>AI-powered planning combines your budget, preferences and crowd conditions into one practical itinerary.</p></div>
+        <div class="planner-card">
+          <div class="planner-form panel">
+            <div class="form-title"><span>01</span><div><b>Tell us about your trip</b><small>We'll handle the complexity.</small></div></div>
+            <label>Destination<select id="destination"><option>Jaipur</option><option>Hampi</option><option>Sikkim</option><option>Kerala</option></select></label>
+            <label>Budget <output id="budgetOut">₹5,000</output><input id="budget" type="range" min="2000" max="15000" step="500" value="5000"></label>
+            <div class="preference-grid"><button class="pref selected">💰 Value</button><button class="pref">🌿 Sustainable</button><button class="pref">👥 Low crowd</button><button class="pref">🍜 Local food</button></div>
+            <div class="smart-controls"><label><input type="checkbox" id="crowdMode" checked> Crowd-aware routing</label><label><input type="checkbox" id="budgetMode" checked> Budget intelligence</label></div>
+            <button class="route-suggest" id="routeSuggest">🧭 Suggest smarter route</button>
+            <div class="route-preview" id="routePreview"><span>LOW-CROWD ROUTE</span><b>Amber Fort → Local Craft Lane → City Palace</b><small>Recommended start: 8:00 AM · avoids peak congestion · Budget checked ✓</small></div>
+            <button class="primary wide" id="generatePlan">Generate my MARG plan <span>✦</span></button>
+          </div>
+          <div class="plan-result">
+            <div class="result-top"><span class="eyebrow">AI OUTPUT</span><span class="ai-badge">94% MATCH</span></div>
+            <h3 id="planTitle">Your 3-day smart itinerary</h3>
+            <div class="generated-plan"><div><span>DAY 01</span><b>Heritage morning</b><small>8:00 AM · Fort + local breakfast</small></div><div><span>DAY 02</span><b>Hidden gems</b><small>Low-crowd route · artisan village</small></div><div><span>DAY 03</span><b>Slow travel</b><small>Local food · sunset · flexible return</small></div></div>
+            <div class="plan-metrics"><div><b id="planBudget">₹5,000</b><span>smart budget</span></div><div><b>32%</b><span>crowd reduction</span></div><div><b>+18%</b><span>local impact</span></div></div>
+            <button class="secondary wide" data-view="bookings">Continue to booking →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING -->
+      <section id="view-bookings" class="view">
+        <div class="page-head"><span class="eyebrow dark">SMART BOOKING</span><h2>Book the journey, <em>not the hassle.</em></h2><p>Compare stays and transport through one simple MARG flow.</p></div>
+        <div class="booking-summary panel"><div><span>YOUR TRIP</span><b>Jaipur · 3 days</b><small>AI plan ready · Budget ₹5,000</small></div><button class="secondary" data-view="planner">Edit plan</button></div>
+        <div class="tabs"><button class="tab active" data-tab="hotels">Hotels</button><button class="tab" data-tab="transport">Transport</button></div>
+        <div id="hotels" class="booking-grid"><article class="booking-card panel"><div class="stay-photo stay-one"></div><div><span class="rating">★ 4.8 · VERIFIED</span><h3>Heritage Haveli</h3><p>Near old city · Breakfast · Local host</p><b>₹1,250/night</b><button class="primary book-btn">Reserve</button></div></article><article class="booking-card panel"><div class="stay-photo stay-two"></div><div><span class="rating">★ 4.6 · LOCAL PICK</span><h3>Pink Courtyard</h3><p>Quiet lane · Artisan district</p><b>₹980/night</b><button class="primary book-btn">Reserve</button></div></article></div>
+        <div id="transport" class="transport-list hidden"><div class="transport-row panel"><span>🚌</span><div><b>Jaipur → Delhi</b><small>AC Sleeper · 21:30 · 5h 45m</small></div><strong>₹699</strong><button class="primary book-btn">Select</button></div><div class="transport-row panel"><span>🚆</span><div><b>Jaipur → Agra</b><small>Express · 07:10 · 4h 20m</small></div><strong>₹845</strong><button class="primary book-btn">Select</button></div></div>
+      </section>
+
+      <!-- SAFETY -->
+      <section id="view-safety" class="view">
+        <div class="page-head"><span class="eyebrow dark">SAFETY COMMAND CENTER</span><h2>Help is always <em>one tap away.</em></h2><p>Quick access to emergency support and the people travelling with you.</p></div>
+        <div class="safety-grid"><div class="sos-card"><span>EMERGENCY</span><h2>Need immediate help?</h2><p>Share your current trip context with your trusted contacts and reach local emergency support.</p><button id="sosBtn" class="sos">🆘 ACTIVATE SOS</button><div class="emergency-links"><button>🏥 Hospital</button><button>🚓 Police</button><button>🤝 NGO support</button></div></div><div class="safety-status"><div><span>TRIP SAFETY</span><b>Protected</b><small>Location sharing · Emergency contacts · Trip details</small></div><div class="safe-check">✓</div></div></div>
+      </section>
+
+      <!-- COMPANIONS -->
+      <section id="view-companions" class="view">
+        <div class="page-head"><span class="eyebrow dark">GROUP TRAVEL</span><h2>Everyone on the journey, <em>connected.</em></h2><p>Keep companion details, emergency contacts and group travel status organized.</p></div>
+        <div class="companion-panel panel" id="companionPanel"><div class="panel-title"><div><span class="eyebrow dark">YOUR TRAVEL GROUP</span><h3>Companion traveller details</h3></div><button class="secondary" id="addCompanion">+ Add companion</button></div><div class="companion-list" id="companionList"><div class="companion"><span class="avatar">AR</span><div><b>Arjun Rao</b><small>Primary companion · Emergency contact shared</small></div><span class="verified">✓ Verified</span></div><div class="companion"><span class="avatar">NS</span><div><b>Neha Shah</b><small>Traveller · Location sharing on</small></div><span class="verified">✓ Verified</span></div></div></div>
+      </section>
+
+      <!-- DESTINATIONS -->
+      <section id="view-destinations" class="view">
+        <div class="page-head"><span class="eyebrow dark">DISCOVER</span><h2>Find a place worth <em>remembering.</em></h2><p>MARG ranks destinations using preferences, budget, crowd levels and responsible travel signals.</p></div>
+        <div class="destination-grid large"><article class="destination-card"><div class="dest-image jaipur"><span>94% MATCH</span></div><div class="dest-info"><h3>Jaipur</h3><p>Royal heritage · Crafts · Food</p><b>From ₹1,480/day</b><button class="primary choose-dest" data-dest="Jaipur">Plan Jaipur →</button></div></article><article class="destination-card"><div class="dest-image hampi"><span>LOW CROWD</span></div><div class="dest-info"><h3>Hampi</h3><p>Ruins · Cycling · Slow travel</p><b>From ₹1,220/day</b><button class="primary choose-dest" data-dest="Hampi">Plan Hampi →</button></div></article><article class="destination-card"><div class="dest-image sikkim"><span>GREEN PICK</span></div><div class="dest-info"><h3>Sikkim</h3><p>Mountains · Monasteries · Local life</p><b>From ₹1,890/day</b><button class="primary choose-dest" data-dest="Sikkim">Plan Sikkim →</button></div></article><article class="destination-card"><div class="dest-image kerala"><span>LOCAL PICK</span></div><div class="dest-info"><h3>Kerala</h3><p>Backwaters · Food · Community stays</p><b>From ₹1,650/day</b><button class="primary choose-dest" data-dest="Kerala">Plan Kerala →</button></div></article></div>
+      </section>
+
+      <!-- LOCAL / IMPACT -->
+      <section id="view-local" class="view">
+        <div class="page-head"><span class="eyebrow dark">LOCAL COMMUNITY</span><h2>Meet the people behind <em>the place.</em></h2><p>MARG helps travellers discover local makers, food and responsible experiences.</p></div>
+        <div class="local-grid"><article class="panel"><span>♧</span><h3>Block-print workshop</h3><p>Learn traditional craft with a local artisan.</p><b>₹450 · 2 hours</b><button class="secondary local-btn">Add to trip</button></article><article class="panel"><span>🍜</span><h3>Home-style food walk</h3><p>Explore family-run kitchens and neighbourhood flavours.</p><b>₹650 · 3 hours</b><button class="secondary local-btn">Add to trip</button></article><article class="panel"><span>🌿</span><h3>Village eco trail</h3><p>A low-impact experience led by the local community.</p><b>₹550 · 4 hours</b><button class="secondary local-btn">Add to trip</button></article></div>
+      </section>
+
+      <!-- GENERIC SUPPORTING VIEWS -->
+      <section id="view-trips" class="view simple-view"><div class="page-head"><span class="eyebrow dark">MY TRIPS</span><h2>Your journeys, <em>in one place.</em></h2><p>Keep upcoming plans, bookings and smart itineraries together.</p></div><div class="trip-card panel"><span class="trip-status">UPCOMING</span><h3>Jaipur Heritage Loop</h3><p>3 days · AI planned · Low-crowd route</p><div><b>₹5,000</b><small>Estimated total</small></div><button class="primary" data-view="planner">Open itinerary →</button></div></section>
+      <section id="view-community" class="view simple-view"><div class="page-head"><span class="eyebrow dark">COMMUNITY</span><h2>Travel that creates <em>connection.</em></h2><p>Discover local recommendations, trusted stories and community-led experiences.</p></div><div class="value-grid"><div class="panel"><b>8</b><h3>Local businesses supported</h3><p>Your MARG trips can move spend toward local hosts and artisans.</p></div><div class="panel"><b>5</b><h3>Communities benefited</h3><p>Responsible experiences help spread tourism value beyond crowded hotspots.</p></div><div class="panel"><b>18%</b><h3>More local impact</h3><p>MARG prioritizes community-oriented choices in your itinerary.</p></div></div></section>
+      <section id="view-sustainable" class="view simple-view"><div class="page-head"><span class="eyebrow dark">SUSTAINABLE TRAVEL</span><h2>Better journeys, <em>lighter footprints.</em></h2><p>Choose efficient routes, lesser-known destinations, local stays and eco-friendly options.</p></div><div class="value-grid"><div class="panel"><b>32%</b><h3>Potential crowd reduction</h3><p>Shift travel timing and routes away from congestion.</p></div><div class="panel"><b>12 kg</b><h3>CO₂ saved</h3><p>Sample impact from choosing lower-impact travel options.</p></div><div class="panel"><b>3</b><h3>Lesser-known destinations</h3><p>Discover alternatives that distribute tourism demand.</p></div></div></section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <div id="modal" class="modal hidden"><div class="modal-card"><button id="closeModal" class="close">×</button><div id="modalContent"></div></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
