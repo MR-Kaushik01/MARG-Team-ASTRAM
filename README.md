@@ -1,80 +1,52 @@
-# MARG — SIH 2026 Prototype
+# MARG — Smart Travel Companion
 
-## 🌍 Smart Travel. Safer Journeys. Meaningful Connections.
+### SIH 2026 Prototype | Team ASTRAM
 
-MARG is a smart travel platform designed to make travel more intelligent, affordable, safe, inclusive and community-focused.
+> **Your Journey, Our Connection**
+
+MARG is a smart travel platform designed to make travel **smarter, safer, more affordable, inclusive, and community-focused**.
+
+The platform connects travellers with intelligent trip planning, budget-aware recommendations, crowd-aware tourism, local experiences, tourism service providers, and safety support — all through one unified travel experience.
+
+---
 
 ## 🚀 Live Prototype
 
-**[Open MARG Prototype](YOUR-GITHUB-PAGES-LINK-HERE)**
+### 👉 [Open MARG Live Prototype](YOUR-GITHUB-PAGES-LINK)
 
-> Replace the link above with your GitHub Pages URL after deployment.
+> Replace `YOUR-GITHUB-PAGES-LINK` with your GitHub Pages URL after deployment.
 
-## ✨ Key Features
+---
 
-- 🤖 AI-Based Trip Planning
-- 💰 AI with Budget Intelligence
-- 🏨 Smart Hotel & Transport Booking
-- 🧭 Smart Route & Destination Suggestions
-- 👥 Companion Traveller Management
-- 🆘 Emergency SOS Support
-- 🌐 Multilingual Support
-- 👥 Crowd-Aware Tourism
-- 🏘️ Local Community Focus
-- 🌱 Sustainable & Responsible Tourism
-- 📍 Lesser-known destination discovery
-- 🔐 Frontend authentication prototype
+# 🎯 Problem We Address
 
-## 🎯 What Makes MARG Different?
+Travellers often need to use multiple platforms for:
 
-### Budget Intelligence
-Creates practical travel plans based on the traveller's available budget instead of suggesting one-size-fits-all trips.
+- Destination discovery
+- Trip planning
+- Hotel and transport booking
+- Local experiences
+- Budget management
+- Safety support
+- Managing group travellers
 
-### Crowd-Aware Tourism
-Helps travellers avoid overcrowded locations by suggesting alternative routes, timings and destinations.
+At the same time, many local tourism businesses and artisans have limited digital visibility and struggle to connect directly with travellers.
 
-### Local Community Focus
-Promotes local businesses, artisans, food experiences and community-led tourism.
-
-### Multilingual Support
-Designed to make travel information more accessible to travellers from different language backgrounds.
-
-### Safety First
-Provides quick access to emergency SOS support and organized companion/travel information.
-
-### Sustainable Tourism
-Encourages responsible travel, lower-impact options and lesser-known destinations.
-
-## 🧑‍💻 Hackathon Demo
-
-This repository contains a **frontend prototype created for SIH 2026 demonstration purposes**.
-
-The authentication system is a prototype simulation:
-
-- Users can sign in using a demo email and password.
-- New users can use the **Create Account** flow.
-- No real user account or payment is created.
-- No real emergency dispatch is performed.
-
-## 🗺️ Prototype Flow
+### MARG brings both sides together.
 
 ```text
-MARG Login
-     ↓
-Sign In / Create Account
-     ↓
-MARG Dashboard
-     ↓
-AI Trip Planner
-     ↓
-Smart Booking
-     ↓
-Destination Discovery
-     ↓
-Local Experiences
-     ↓
-Safety & SOS
-     ↓
-Companion Management
-     ↓
-My Trips & Travel Impact
+                 MARG
+                  │
+        ┌─────────┴─────────┐
+        │                   │
+    TRAVELLERS        SERVICE PROVIDERS
+        │                   │
+        ↓                   ↓
+  Plan & Discover      Manage Business
+  Book & Travel        Manage Listings
+  Stay Safe            Receive Requests
+  Travel Responsibly   Reach Travellers
+        │                   │
+        └─────────┬─────────┘
+                  ↓
+        Stronger Local Tourism
